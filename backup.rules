@@ -1,0 +1,8 @@
+# Hard drive for backups.
+ACTION=="add", ENV{ID_FS_UUID}=="YOUR_BACKUP_DRIVE_UUID_HERE", \
+SYMLINK+="backup-disk", IMPORT{program}="/usr/bin/xpub", RUN+="/bin/su $env{XUSER} -c '/home/YOUR_USERNAME_HERE/.start-backup-udev.sh'"
+
+# Memory stick for backups.
+ACTION=="add", ENV{ID_FS_UUID}=="YOUR_KEY_DRIVE_UUID_HERE", \
+SYMLINK+="backup-key", IMPORT{program}="/usr/bin/xpub", RUN+="/bin/su $env{XUSER} -c '/home/YOUR_USERNAME_HERE/.start-backup-udev.sh'"
+
